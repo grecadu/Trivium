@@ -1,0 +1,36 @@
+﻿@model WebApplication1.Models.Trivium
+
+
+<br />
+<br />
+
+@using (Html.BeginForm("Encript", "Home"))
+{
+    @Html.Label("Clave:") @Html.TextBoxFor(modelItem => Model.Key)
+    <br />
+    <br />
+    @Html.Label("Vect Ini:") @Html.TextBoxFor(modelItem => Model.VI)
+    <br />
+    <br />
+    <p>
+        @Html.Label("Texto a Encriptar:") @Html.TextAreaFor(modelItem => Model.Clear)
+
+        <input type="submit" value="Encriptar" />
+    </p>
+}
+<br />
+
+
+@using (Html.BeginForm("Decript", "Home"))
+{
+    @Html.HiddenFor(modelItem => Model.Key)
+    @Html.HiddenFor(modelItem => Model.VI)
+
+    <p>
+        @Html.Label(" Texto a DesEncriptar:") @Html.TextAreaFor(modelItem => Model.Encrypted)
+
+        <input type="submit" value="Desencriptar" />
+    </p>
+}
+<br />
+@Html.Label("Texto Desencriptado:") @Html.DisplayFor(modelItem => Model.Clear)
